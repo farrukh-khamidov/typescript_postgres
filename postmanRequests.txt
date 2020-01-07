@@ -1,0 +1,84 @@
+1. userSignup: {
+  url: http://localhost:3000/auth/signup,
+  method: PUT,
+  body: {
+    "firstName": "John5",
+    "lastName": "Doe",
+    "userName": "john5",
+    "email": "john5@gmail.com",
+    "password": "john123"
+  }
+}
+
+2. userLogin: {
+  url: http://localhost:3000/auth/login,
+  method: POST,
+  body: {
+    "email": "john5@gmail.com",
+    "password": "john123"
+  },
+  Tests: if(pm.response.code === 200) {
+    pm.environment.set('authToken', pm.response.json().token)
+  }
+}
+
+3. createPost: {
+  url: http://localhost:3000/posts,
+  method: POST,
+  body: {
+    "title": "Post 21",
+    "content": "Text of post 21"
+}
+}
+
+4. getPosts: {
+  url: http://localhost:3000/posts,
+  method: GET
+}
+
+5. getPost: {
+  url: http://localhost:3000/posts/:id,
+  method: GET
+}
+
+6. deletePost: {
+  url: http://localhost:300/posts/:id,
+  method: DELETE
+}
+
+7. updatePost: {
+  url: http://localhost:3000/posts/:id,
+  method: PUT,
+  body: {
+    "title": "Some post",
+    "content": "Some post text"
+  }
+}
+
+6. likePost: {
+  url: http://localhost:3000/posts/:id,
+  method: POST,
+  body: {
+    "id":number
+  }
+}
+
+7. getAllPostsOfUser: {
+  url: http://localhost:3000/user-posts/all,
+  method: GET
+}
+
+8. getTopLikedPostsOfUser: {
+  url: http://localhost:3000/user-posts/top-liked,
+  method: GET
+}
+
+9. getTopViewedPostsOfUser: {
+  url: http://localhost:3000/user-posts/top-viewed,
+  method: GET
+}
+
+10. getUserPostsInfo: {
+  url: http://localhost:3000/user-posts/info,
+  method: GET
+}
